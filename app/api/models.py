@@ -13,7 +13,8 @@ class Data(db.Model):
         json_data = {
                 'id': self.id,
                 'temperature': self.temperature,
-                'humidity': self.humidity
+                'humidity': self.humidity,
+                'timestamp': self.timestamp,
             }
         return json_data
 
