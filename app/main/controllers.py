@@ -8,3 +8,7 @@ main = Blueprint('main',__name__)
 def index():
     data = [d.to_json() for d in Data.query.all()[:100]]
     return render_template("index.html",data=data)
+
+@main.route("/test")
+def test():
+    return render_template("test.html")
