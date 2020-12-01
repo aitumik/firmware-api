@@ -1,45 +1,82 @@
-$(document).ready(function() {
-  var dataPoints = [];
-  var options = {
-    theme: "light2",
-    title: {
-      text: "Live Data"
-    },
-    data: [{
-      type: "line",
-      dataPoints: dataPoints
-    }]
+function BuildChart(labels,values,chartTitle) {
+  var data = {
+    labels: labels,
+    datasets: [{
+      label: chartTitle,
+      data: values,
+    }],
   };
 
-  $("#chartContainer").CanvasJSChart(options);
-  updateData();
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+      animation: {
+        duration: 0,
+      },
+      backgroundColor: [
+         "rgb(255, 99, 132)",
+      ],
+      responsive: true,
+      scales: {
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Time'
+          }
+        }],
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "Temperature"
+          }
+        }]
+      }
+    }
+  });
+  return myChart;
+}
 
-  //initial values
-  var xValue = 19;
-  var yValue = 19;
-  var newDataCount = 6;
+var mockLabels = ["Monday","Tuesday","Wed","Thur","Fri","Sat"];
+var mockValues = [10,13,12,11,20,3];
+var chart = BuildChart(mockLabels,mockValues,"Temperature");
+
+function addData(myChart,labels,values) {
+  var d = {
+    labels: labels,
+    datasets: [{
+      label: "Temperature",
+      data: values,
+    }],
+  };
+  myChart.data = d;
+  myChart.update();
+}
 
 
-  function addData(data) {
-    if(newDataCount != 1) {
-      $.each(data,function(key,value) {
-        dataPoints.push({x: data[0][0], y: parseInt(data[0][1])});
-        xValue++;
-        yValue = parseInt(data[0][1]);
+function fetch_data() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if(this.readyState == 4 && this.status == 200) {
+      var json = JSON.parse(this.response);
+      var realJson = json['msg'];
+      var labels = realJson.map(function (e) {
+        return e.timestamp.split(" ")[4] 
       });
-  } else {
-    dataPoints.push({x: data[0][0], y: parseInt(data[0][1])});
-    xValue++;
-    yValue = parseInt(data[0][1]);
-  }
+      console.log(labels);
+      var values = realJson.map(function (e) {
+        return (e.temperature);
+      });
+      addData(chart,labels,values);
+    }
+  };
 
-    new dataCount = 1;
-    $("#chartContainer").CanvasJSChart().render()
-    setTimeout(updateData,1500);
-  }
+  xhttp.open('GET',"http://localhost:5000/api/v1/data",false);
+  xhttp.send();
+}
 
-  functionUpdateData() {
+setInterval(function(){
+    fetch_data();
+}, 1000);
 
-  }
-
-});
