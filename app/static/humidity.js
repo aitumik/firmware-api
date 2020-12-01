@@ -11,7 +11,7 @@ function BuildChart(labels,values,chartTitle) {
     ],
   };
 
-  var ctx = document.getElementById("myChart").getContext('2d');
+  var ctx = document.getElementById("humidityGraph").getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'line',
     data: data,
@@ -30,7 +30,7 @@ function BuildChart(labels,values,chartTitle) {
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: "Temperature"
+            labelString: "Humidity"
           }
         }]
       }
@@ -41,13 +41,13 @@ function BuildChart(labels,values,chartTitle) {
 
 var mockLabels = ["Monday","Tuesday","Wed","Thur","Fri","Sat"];
 var mockValues = [10,13,12,11,20,3];
-var chart = BuildChart(mockLabels,mockValues,"Temperature");
+var chart = BuildChart(mockLabels,mockValues,"Humidity");
 
 function addData(myChart,labels,values) {
   var d = {
     labels: labels,
     datasets: [{
-      label: "Temperature",
+      label: "Humidity",
       data: values,
       fillColor: "rgba(151,249,190,0.5)",
       strokeColor: "rgba(255,255,255,1)",
@@ -71,7 +71,7 @@ function fetch_data() {
       });
       console.log(labels);
       var values = realJson.map(function (e) {
-        return (e.temperature);
+        return (e.humidity);
       });
       addData(chart,labels,values);
     }
