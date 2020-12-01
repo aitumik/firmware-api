@@ -16,7 +16,7 @@ function BuildChart(labels,values,chartTitle) {
         duration: 0,
       },
       backgroundColor: [
-         "rgb(255, 99, 132)",
+         "red",
       ],
       responsive: true,
       scales: {

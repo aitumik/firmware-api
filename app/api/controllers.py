@@ -18,5 +18,6 @@ def data():
         d = Data(temperature=temp,humidity=humidity)
         d.save()
         return jsonify({'msg':'data posted successfully'}),201
-    res = [i.to_json() for i in Data.query.all()[::-1][:50]]
+    count = Data.query.count();
+    res = [i.to_json() for i in Data.query.all()[::][count - 50:count]]
     return jsonify({'msg':res}),200
