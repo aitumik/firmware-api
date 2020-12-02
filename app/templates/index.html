@@ -6,3 +6,7 @@
         <canvas id="myChart"></canvas>
       </div>
 {% endblock content%}
+
+{% block custom_js %}
+  <script src="{{url_for('static',filename='custom.js')}}"></script>
+{% endblock custom_js %}

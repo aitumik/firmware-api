@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="text-center">Temperature graph</h1>
+    <h1 class="text-center">Humidity graph</h1>
     <div class="container">
-      <canvas id="myChart"></canvas>
+      <canvas id="humidityGraph"></canvas>
     </div>
 {% endblock content %}
+
+{% block custom_js %}
+  <script src="{{url_for('static',filename='humidity.js')}}"></script>
+{% endblock custom_js %}

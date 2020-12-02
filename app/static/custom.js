@@ -39,8 +39,8 @@ function BuildChart(labels,values,chartTitle) {
   return myChart;
 }
 
-var mockLabels = ["Monday","Tuesday","Wed","Thur","Fri","Sat"];
-var mockValues = [10,13,12,11,20,3];
+var mockLabels = ["0:00:0","0:00:0","0:00:0","0:00:0","0:00:0","0:00:0"];
+var mockValues = [0,0,0,0,0,0];
 var chart = BuildChart(mockLabels,mockValues,"Temperature");
 
 function addData(myChart,labels,values) {
@@ -67,7 +67,7 @@ function fetch_data() {
       var json = JSON.parse(this.response);
       var realJson = json['msg'];
       var labels = realJson.map(function (e) {
-        return e.timestamp.split(" ")[4] 
+        return e.timestamp.split(" ")[4]
       });
       console.log(labels);
       var values = realJson.map(function (e) {
@@ -84,4 +84,3 @@ function fetch_data() {
 setInterval(function(){
     fetch_data();
 }, 1000);
-
