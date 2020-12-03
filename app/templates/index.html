@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-      <h1 class="text-center">Temperature graph</h1>
+
+      <div class="container">
+        <select class="custom-select custom-select-sm">
+          <option selected>Choose a period</option>
+          <option value="1">Last 1 days(1min)</option>
+          <option value="2">Last 3 days(3min)</option>
+          <option value="3">Last 7 days(7min)</option>
+        </select>
+      </div>
+
+      <h3 class="text-center">Temperature graph</h3>
       <div class="container">
         <canvas id="myChart"></canvas>
       </div>
