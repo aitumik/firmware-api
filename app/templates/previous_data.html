@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for d in data %}
+  <p>{{d.humidity}}</p>
+  {% endfor %}
+{% endblock content %}

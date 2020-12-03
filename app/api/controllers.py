@@ -23,14 +23,4 @@ def data():
     res = [i.to_json() for i in Data.query.all()[::][count - 50:count]]
     return jsonify({'msg':res}),200
 
-@api.route("/prev-data/<int:minutes>",methods=['GET'])
-def prev_data(minutes):
-    past_time = datetime.now() - timedelta(minutes=int(minutes))
-    d = Data.query.filter_by(timestamp=past_time).all()
-    
-    if len(d) > 50:
-        d = d[:50]
-    res = [i.to_json() for i in d]
-    return jsonify({'msg':res}),200
-
 
