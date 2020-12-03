@@ -34,6 +34,7 @@ function BuildChart(labels,values,chartTitle) {
         yAxes: [{
           ticks: {
             max: 60,
+            autoSkip: true,
             min: 4,
             stepSize: 1,
           },
