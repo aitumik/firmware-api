@@ -22,12 +22,21 @@ function BuildChart(labels,values,chartTitle) {
       responsive: true,
       scales: {
         xAxes: [{
+          ticks: {
+            autoSkip: true,
+            maxTicksLimit: 24,
+          },
           scaleLabel: {
             display: true,
             labelString: 'Time'
           }
         }],
         yAxes: [{
+          ticks: {
+            max: 60,
+            min: 4,
+            stepSize: 1,
+          },
           scaleLabel: {
             display: true,
             labelString: "Temperature"

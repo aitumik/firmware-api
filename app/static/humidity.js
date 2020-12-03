@@ -28,6 +28,11 @@ function BuildChart(labels,values,chartTitle) {
           }
         }],
         yAxes: [{
+          ticks: {
+            max: 120,
+            min: 20,
+            stepSize: 2,
+          },
           scaleLabel: {
             display: true,
             labelString: "Humidity"
