@@ -43,13 +43,23 @@ Serve the application and make sure that the firmware runs on the same wifi as t
 ```bash
 python3 manage.py runserver --host 0.0.0.0
 ```
-As soon as the server starts you should start seeing incoming request from the esp8266 server
+As soon as the server starts you should start seeing incoming request from the esp8266 client
 
 ## Technologies used
 * Python
 * Flask
 * jQuery
 * Bootstrap
+
+## Drawbacks
+
+* The web application is not quite responsive on mobile devices
+* The UI is still basic bootsrap no fancy animations
+
+## Future features
+
+* Use semantic UI instead of bootstrap
+* Allow the export of data
 
 ## Contributing
 Pull requests are welcome. For major changes please open an issue first
