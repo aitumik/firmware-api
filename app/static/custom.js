@@ -2,7 +2,7 @@ function BuildChart(labels,values,chartTitle) {
   var data = {
     labels: labels,
     datasets: [{
-      label: chartTitle,data: values, backgroundColor: '#af90ca',
+      label: chartTitle,data: values,
       },
     ],
   };
@@ -18,9 +18,6 @@ function BuildChart(labels,values,chartTitle) {
       responsive: true,
       scales: {
         xAxes: [{
-          afterFit: (scale) => {
-            scale.height = 120;
-          },
           ticks: {
             autoSkip: true,
             maxTicksLimit: 24,
@@ -31,6 +28,9 @@ function BuildChart(labels,values,chartTitle) {
           }
         }],
         yAxes: [{
+          afterFit: (scale) => {
+            scale.height = 120;
+          },
           ticks: {
             max: 60,
             autoSkip: true,
@@ -58,7 +58,6 @@ function addData(myChart,labels,values) {
     labels: labels,
     datasets: [{
       label: "Temperature",
-      backgroundColor: '#af90ca',
     }],
   };
   myChart.data = d;
