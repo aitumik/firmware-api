@@ -32,10 +32,13 @@
     </nav>
     {% endblock navbar %}
         <div class="jumbotron">
-         <h3>For simplicity we are going to use minutes instead of days to view
+         <small>For simplicity we are going to use minutes instead of days to view
            the previous data as it is hard to wait 30minutes for change to
           appear on the graphs
-         </h3>
+          <b>To view previous humidity post to this endpoint</b>
+          <code>/pastdata/humidity/`n`</code> where <code>n</code> is the number of minutes you want to go back
+          Same thing with temperature just use <code>/pastdata/temperature/`n`</code>
+        </small>
       </div>
 
     {% block content %}
