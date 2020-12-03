@@ -22,6 +22,9 @@ function BuildChart(labels,values,chartTitle) {
       responsive: true,
       scales: {
         xAxes: [{
+          afterFit: (scale) => {
+            scale.height = 120;
+          },
           ticks: {
             autoSkip: true,
             maxTicksLimit: 24,
