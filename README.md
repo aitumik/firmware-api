@@ -8,7 +8,7 @@ A web app(ui + api) for showing the humidity and temperature posted by esp8266
 <table>
     <tr>
         <td>
-            <img alt="open opps 1" src="docs/screenshots/open-opps-01.png">
+            <img alt="open opps 1" src="/screenshots/data.png">
         </td>
         <td>
             <img alt="open opps 2" src="docs/screenshots/open-opps-02.png">

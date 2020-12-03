@@ -77,7 +77,7 @@ function fetch_data() {
     }
   };
 
-  xhttp.open('GET',"http://localhost:5000/api/v1/data",false);
+  xhttp.open('GET',"http://134.122.30.208/api/v1/data",false);
   xhttp.send();
 }
 
