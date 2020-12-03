@@ -20,6 +20,8 @@ def past_data(minutes):
     offset = datetime.now() - timedelta(minutes=int(minutes))
     data = Data.query.all()
     data = [d for d in data if d.timestamp < offset]
+    if len(data) > 50:
+        data = data[len(data) - 50:len(data)]
     return render_template("previous_data.html",data=data)
 
 @main.route("/test")
