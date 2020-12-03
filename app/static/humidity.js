@@ -29,8 +29,8 @@ function BuildChart(labels,values,chartTitle) {
         }],
         yAxes: [{
           ticks: {
-            max: 120,
-            min: 20,
+            max: 80,
+            min: 40,
             stepSize: 2,
           },
           scaleLabel: {

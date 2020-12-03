@@ -3,6 +3,10 @@ function BuildChart(labels,values,chartTitle) {
     labels: labels,
     datasets: [{
       label: chartTitle,data: values,
+      fillColor: "rgba(151,249,190,0.5)",
+      strokeColor: "rgba(255,255,255,1)",
+      pointColor: "rgba(220,220,220,1)",
+      pointSTrokeColor: "#fff",
       },
     ],
   };
@@ -32,7 +36,7 @@ function BuildChart(labels,values,chartTitle) {
             scale.height = 120;
           },
           ticks: {
-            max: 60,
+            max: 40,
             autoSkip: true,
             maxTicksLimit: 10,
             min: 4,
@@ -58,6 +62,11 @@ function addData(myChart,labels,values) {
     labels: labels,
     datasets: [{
       label: "Temperature",
+      data: values,
+      fillColor: "rgba(151,249,190,0.5)",
+      strokeColor: "rgba(255,255,255,1)",
+      pointColor: "rgba(220,220,220,1)",
+      pointSTrokeColor: "#fff",
     }],
   };
   myChart.data = d;
