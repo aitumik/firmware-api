@@ -49,7 +49,7 @@ As soon as the server starts you should start seeing incoming request from the e
 * Python
 * Flask
 * jQuery
-* Semantic UI
+* Bootstrap
 
 ## Contributing
 Pull requests are welcome. For major changes please open an issue first
