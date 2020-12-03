@@ -1,4 +1,4 @@
-# Firmware API and UI
+:wq# Firmware API and UI
 This is a firmware and Web test
 
 ## Description
