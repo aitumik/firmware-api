@@ -23,4 +23,3 @@ def data():
     res = [i.to_json() for i in Data.query.all()[::][count - 50:count]]
     return jsonify({'msg':res}),200
 
-

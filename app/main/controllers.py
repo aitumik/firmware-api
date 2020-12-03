@@ -22,7 +22,17 @@ def past_data(minutes):
     data = [d for d in data if d.timestamp < offset]
     if len(data) > 50:
         data = data[len(data) - 50:len(data)]
-    return render_template("previous_data.html",data=data)
+
+    labels = [str(j.timestamp).split(" ")[1].split(".")[0] for j in data]
+    values = [j.temperature for j in data]
+
+    colors = [
+    "#F7464A", "#46BFBD", "#FDB45C", "#FEDCBA",
+    "#ABCDEF", "#DDDDDD", "#ABCABC", "#4169E1",
+    "#C71585", "#FF4500", "#FEDCBA", "#46BFBD"]
+
+    return render_template("previous_data.html",title="Previous \
+            Data",max=100,labels=labels,values=values)
 
 @main.route("/test")
 def test():
