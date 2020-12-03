@@ -38,6 +38,7 @@ function BuildChart(labels,values,chartTitle) {
           ticks: {
             max: 60,
             autoSkip: true,
+            maxTicksLimit: 30,
             min: 4,
             stepSize: 1,
           },
